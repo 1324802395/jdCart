@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lunbotu {
+  position: relative;
+  float: left;
+  width: 590px;
+  height: 470px;
+  margin-left: 10px;
+  /* overflow: hidden; */
+}
+.lunbotu .content {
+  /* display: flex; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* overflow: hidden; */
+}
+.lunbotu .content li{
+  /* float: left; */
+  position: absolute;
+  opacity: 0;
+  transition: 1s;
+}
+.lunbotu .content .show{
+  opacity: 1;
+}
+.lunbotu .dotted {
+  position: absolute;
+  top: 445px;
+  left: 20px;
+  z-index: 3;
+}
+.lunbotu .dotted li {
+  float: left;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  border-radius: 12px;
+  background-color: #fff;
+
+}
+.lunbotu .dotted .active{
+  background: black;
+}
+
+.lunbotu .btn_l,
+.lunbotu .btn_r {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 220px;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 0 15px 15px 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.lunbotu .btn_l:hover,
+.lunbotu .btn_r:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #e3201b;
+}
+.lunbotu .btn_r {
+  position: absolute;
+  left: 560px;
+  top: 220px;
+  border-radius: 15px 0 0 15px;
+}
+    </style>
+</head>
+<body>
+    <div class="lunbotu">
+        <ul class="content">
+            <li class="show"><img src="uploads/lunbotu/lubotu_1.jpg.webp"></li>
+            <li><img src="uploads/lunbotu/lubotu_2.jpg.webp"></li>
+            <li><img src="uploads/lunbotu/lubotu_3.jpg"></li>
+            <li><img src="uploads/lunbotu/lubotu_4.jpg"></li>
+            <li><img src="uploads/lunbotu/lubotu_5.jpg"></li>
+            <li><img src="uploads/lunbotu/lubotu_6.jpg.webp"></li>
+            <li><img src="uploads/lunbotu/lubotu_7.jpg.webp"></li>
+            <li><img src="uploads/lunbotu/lubotu_8.jpg.webp"></li>
+        </ul>
+        <ul class="dotted">
+          <li class="active"></li>
+        </ul>
+        <btn class="btn_l">&lt;</btn>
+        <btn class="btn_r">&gt;</btn>
+    </div>
+
+    <script>
+        let lBtn=document.querySelector('.btn_l');
+        let rBtn=document.querySelector('.btn_r');
+        // rBtn.onclick=()=>{
+        //     let time='';
+        //     time=setInterval(()=>{
+        //         let left=parseInt(getComputedStyle(ul).left);
+        //         if(left>-630){
+        //             // console.log(ul.style.left);
+        //             ul.style.left=(left-10)+'px';
+        //         }else{
+        //             clearInterval(time);
+        //         }
+        //     },5)
+        // }
+
+        
+        // 所有li
+        let lis=document.querySelectorAll('.content li');
+        console.log(lis);
+        // li的长度
+        let liLength=lis.length;
+        // 第一个li
+        let liFirst=lis[0];
+        // 最后一个li
+        let liLast=lis[liLength-1];
+
+        //给每个li加上个index
+        let i=0
+        lis.forEach(item=>{
+          item.setAttribute('index',i);
+          i+=1;
+        })
+
+        let num=0;
+        rBtn.onclick=()=>{
+          let liShow=document.querySelector('.show');
+          // console.log(liShow);
+          // 查找当前拥有show的li 给下一个li设置show 删除当前show 计数，到最后一个给第一个li设置show
+          
+          console.log(num);
+          if (num<liLength-1) {
+            liShow.className='';
+            liShow.nextElementSibling.className='show'
+            num+=1;
+          }else{
+            num=0;
+            lis.forEach(item=>{item.className=''})
+            liFirst.className='show';
+          }
+          setActive()
+        }
+        lBtn.onclick=()=>{
+          let liShow=document.querySelector('.show');
+          // console.log(liShow);
+          // 查找当前拥有show的li 给一个li设置show 删除当前show 计数，到最后一个给第一个li设置show
+          console.log(num);
+          if (num>0) {
+            liShow.className='';
+            liShow.previousElementSibling.className='show'
+            num-=1;
+          }else{
+            num=liLength-1;
+            lis.forEach(item=>{item.className=''})
+            liLast.className='show';
+          }
+          setActive()
+        }
+
+        // 根据图片的数量创建下方的小圆圈
+        let ulCir=document.querySelector('.dotted');
+        for(let i=0;i<lis.length-1;i++){
+          let li=document.createElement('li');
+          ulCir.appendChild(li);
+        }
+
+        function setActive(){
+          // 先清除样式
+          let liCir=document.querySelectorAll('.dotted li');
+          liCir.forEach(item=>{
+            item.className=''
+          });
+          // 再给圆点设置样式，根据当前图片
+          let nowPic=document.querySelector('.content .show');
+          let index=nowPic.getAttribute('index');
+          liCir[index].className='active';
+        }
+        
+    </script>
+</body>
+</html>
