@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "src": "uploads/for_you_goodslist/2/1.jpg.webp",
+    "price": 1099,
+    "name": "小米8青春版 镜面渐变AI双摄 6GB+64GB 深空灰 全网通4G"
+  },
+  {
+    "id": 2,
+    "src": "uploads/for_you_goodslist/2/2.jpg.webp",
+    "price": 3599.00,
+    "name": "Apple iPhone 6s Plus (A1699) 128G 银色 移动联通电信4G手机"
+  },
+  {
+    "id": 3,
+    "src": "uploads/for_you_goodslist/2/3jpg.webp",
+    "price": 3059.00,
+    "name": "华为 Mate 9 Pro 6GB+128GB版 银钻灰 移动联通电信4G手机 双卡双待"
+  },
+  {
+    "id": 4,
+    "src": "uploads/for_you_goodslist/2/4.jpg.webp",
+    "price": 1099.00,
+    "name": "荣耀 畅玩7X 4GB+32GB 全网通4G全面屏手机 标配版 幻夜黑"
+  },
+  {
+    "id": 5,
+    "src": "uploads/for_you_goodslist/2/5.jpg.webp",
+    "price": 3059.00,
+    "name": "华为 Mate 9 Pro 6GB+128GB版 银钻灰 移动联通电信4G手机 双卡双待"
+  },
+  {
+    "id": 6,
+    "src": "uploads/for_you_goodslist/2/6.jpg.webp",
+    "price": 1099.00,
+    "name": "荣耀 畅玩7X 4GB+32GB 全网通4G全面屏手机 标配版 幻夜黑"
+  },
+  {
+    "id": 7,
+    "src": "uploads/for_you_goodslist/2/7.jpg.webp",
+    "price": 3059.00,
+    "name": "华为 Mate 9 Pro 6GB+128GB版 银钻灰 移动联通电信4G手机 双卡双待"
+  },
+  {
+    "id": 8,
+    "src": "uploads/for_you_goodslist/2/8.jpg.webp",
+    "price": 1099.00,
+    "name": "荣耀 畅玩7X 4GB+32GB 全网通4G全面屏手机 标配版 幻夜黑"
+  }
+]

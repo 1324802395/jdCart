@@ -54,9 +54,12 @@
     overflow: hidden;
   }
   .product_details .left .mid_photo .big_photo .big_img {
+    width: 800px;
+    height: 800px;
     position: absolute;
     top: 0;
     left: 0;
+    /* border: 1px solid brown; */
   }
   .product_details .left .preview_list {
     width: 450px;

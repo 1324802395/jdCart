@@ -3,7 +3,7 @@ let rBtn=document.querySelector('.btn_r');
 
 // 所有li
 let lis=document.querySelectorAll('.content li');
-console.log(lis);
+// console.log(lis);
 // li的长度
 let liLength=lis.length;
 // 第一个li
@@ -20,11 +20,15 @@ lis.forEach(item=>{
 
 let num=0;
 rBtn.onclick=()=>{
+  lunbo()
+}
+
+function lunbo(){
   let liShow=document.querySelector('.show');
   // console.log(liShow);
   // 查找当前拥有show的li 给下一个li设置show 删除当前show 计数，到最后一个给第一个li设置show
   
-  console.log(num);
+  // console.log(num);
   if (num<liLength-1) {
     liShow.className='';
     liShow.nextElementSibling.className='show'
@@ -36,6 +40,18 @@ rBtn.onclick=()=>{
   }
   setActive()
 }
+
+// 实现自动轮播
+let timer='';
+timer=setInterval(lunbo,2000);
+document.querySelector('.lunbotu').onmouseover=()=>{
+  clearInterval(timer);
+}
+document.querySelector('.lunbotu').onmouseout=()=>{
+  timer=setInterval(lunbo,2000);
+}
+
+
 lBtn.onclick=()=>{
   let liShow=document.querySelector('.show');
   // console.log(liShow);
