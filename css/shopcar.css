@@ -373,6 +373,12 @@
   float: left;
   border: 1px solid #ccc;
   padding: 5px;
+  width: 120px;
+  height: 120px;
+}
+.c-container .cart-item .p-goods .p-img img{
+  width: 100%;
+  height: 100%;
 }
 .c-container .cart-item .p-goods .p-msg {
   float: left;
@@ -474,7 +480,7 @@
 .cart-floatbar .amount-sum {
   float: left;
 }
-.cart-floatbar .amount-sum em {
+.cart-floatbar .amount-sum span {
   font-weight: 700;
   color: #E2231A;
   padding: 0 3px;
@@ -483,7 +489,7 @@
   float: left;
   margin: 0 20px;
 }
-.cart-floatbar .price-sum em {
+.cart-floatbar .price-sum span {
   font-size: 16px;
   color: #E2231A;
   font-weight: 700;
