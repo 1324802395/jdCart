@@ -3,6 +3,7 @@ let rBtn=document.querySelector('.btn_r');
 
 // 所有li
 let lis=document.querySelectorAll('.content li');
+
 // console.log(lis);
 // li的长度
 let liLength=lis.length;
@@ -38,7 +39,7 @@ function lunbo(){
     lis.forEach(item=>{item.className=''})
     liFirst.className='show';
   }
-  setActive()
+  setActive();
 }
 
 // 实现自动轮播
@@ -71,22 +72,43 @@ lBtn.onclick=()=>{
 
 // 根据图片的数量创建下方的小圆圈
 let ulCir=document.querySelector('.dotted');
-for(let i=0;i<lis.length-1;i++){
+for(let i=0;i<lis.length;i++){
   let li=document.createElement('li');
+  if(i==0){li.className='active'}
+  li.setAttribute('index',i)
   ulCir.appendChild(li);
 }
+// 点击哪张图就显示哪张图
+// 下方的圆圈
+let liCir=document.querySelectorAll('.dotted li');
+// let imageS=document.querySelectorAll('.content li')
+liCir.forEach(item=>{
+  item.onclick=()=>{
+    clearInterval(timer);
+    liCir.forEach(item1=>{item1.className=''})
+    let index=item.getAttribute('index');
+    item.className='active';
+    num=index-0;
+    lis.forEach(item2=>{item2.className=''})
+    lis[index].className='show'
+  }
+})
 
 function setActive(){
   // 先清除样式
-  let liCir=document.querySelectorAll('.dotted li');
+  // let liCir=document.querySelectorAll('.dotted li');
   liCir.forEach(item=>{
     item.className=''
   });
   // 再给圆点设置样式，根据当前图片
   let nowPic=document.querySelector('.content .show');
   let index=nowPic.getAttribute('index');
+  // console.log(index);
+  // console.log(liCir);
   liCir[index].className='active';
 }
+
+
 
 
 // 设置倒计时
@@ -111,3 +133,13 @@ function contrast(num){
   return num<10?num=('0'+num):num;
 }
 setInterval(time,1000);
+
+
+// 获取所有图片添加事件，跳转到详情页
+let images=document.querySelectorAll('.content li img');
+images.forEach(item=>{
+  item.onclick=()=>{
+    location.href='./shop_goods.html'
+  }
+})
+

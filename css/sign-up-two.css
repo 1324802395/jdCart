@@ -1,3 +1,7 @@
+*{
+	padding: 0;
+	margin: 0;
+}
 .fix{
 	width: 32px;
 	height: 135px;
@@ -129,6 +133,7 @@ main>form li{
 }
 
 main>form button{
+	display: block;
 	width: 398px;
 	height: 55px;
 	margin-top: 31px;
@@ -136,6 +141,11 @@ main>form button{
 	border: none;
 	background:#e2231a;
 	color: #fff;
+	/* text-decoration: none; */
+}
+main>form button a{
+	color: #fff;
+	text-decoration: none;
 }
 form{
 	margin-top: 24px;
@@ -199,7 +209,7 @@ form ul>p>span{
 	position: absolute;
 	top:0px;
 	left: 0px;
-	background: url("../images/register/icon\ \(1\).png") no-repeat -16px -99px;
+	/* background: url("../images/register/icon\ \(1\).png") no-repeat -16px -99px; */
 }
 
 

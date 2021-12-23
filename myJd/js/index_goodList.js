@@ -51,33 +51,62 @@ getGoods();
 // let goods=getGoods();
 // console.log(goods);
 
+//判断用户是否登录
+function isLogin(){
+    let isLogin=localStorage.getItem('user');
+    if(isLogin){
+        return true;
+    }return false;
+} 
+// 获取购物车的节点，若没有登录改变href
+let shopCarA=document.querySelector('.shop_car a');
+if(!isLogin()){
+    shopCarA.href='./login.html';
+    console.log(123);
+    // return;
+}else{
+    shopCarA.href='./shopcar.html'
+    showCartNum();
+}
+// shopCarA.href='./login.html'
+console.log(shopCarA.href);
+console.log(isLogin());
 // 点击加入购物车将内容添加到local中
 let cartGoods={};
 function addToCart(gId,num){
-    let cart=localStorage.getItem('cart');
-    if(cart){
-        cart=JSON.parse(cart);
-        // console.log(cart);
-        // console.log(cart[gId]);
-        if(cart[gId]){
-            for (let attr in cart) { 
-                attr == gId && (num = num + cart[attr]);
-              }
-
-            cart[gId]=num;
-            localStorage.setItem('cart',JSON.stringify(cart));
+    let state=isLogin();
+    if(!state){
+        location.href='./login.html'
+    }else{
+        let cart=localStorage.getItem('cart');
+        console.log(cart);
+        if(cart){
+            cart=JSON.parse(cart);
+            // console.log(cart);
+            // console.log(cart[gId]);
+            if(cart[gId]){
+                for (let attr in cart) { 
+                    attr == gId && (num = num + cart[attr]);
+                  }
+    
+                cart[gId]=num;
+                localStorage.setItem('cart',JSON.stringify(cart));
+            }else{
+                console.log('bugbug');
+                cartGoods[gId]=num;
+                localStorage.setItem('cart',JSON.stringify(cartGoods));
+            }
         }else{
-            // console.log(123);
             cartGoods[gId]=num;
             localStorage.setItem('cart',JSON.stringify(cartGoods));
+            console.log('bug');
         }
-    }else{
-        cartGoods[gId]=num;
-        localStorage.setItem('cart',JSON.stringify(cartGoods));
-    }
-
-    showCartNum()
+    
+        showCartNum();
+        };
+    
 }
+// 当用户登录后才显示数字，并且点击会去到购物车页面
 // 购物车左上角显示数字
 function showCartNum(){
     // 在哪显示
@@ -93,8 +122,23 @@ function showCartNum(){
     }else{
         divNum.innerHTML=0
     }
+    // console.log(cart);
 }
-showCartNum();
+// showCartNum();
+
+// 判断用户是否登录，登录网页上方显示用户名，改变a标签的href
+let aS=document.querySelectorAll('.login a')
+if(isLogin()){
+  aS[0].href='#none';
+  aS[1].href='#none';
+  aS[0].innerHTML='尊敬的 '+localStorage.getItem('user')+' 您好！'
+    aS[1].innerHTML='';
+}else{
+  aS[0].href='./login.html';
+  aS[0].innerHTML='你好，请登录'
+  aS[1].innerHTML='&nbsp;&nbsp;免费注册';
+}
+
 function getDom(ele){
     return document.querySelector(ele);
 }

@@ -163,7 +163,7 @@
   left: 0;
   top: 0;
 }
-.login .login_box .login_tab_item .zhanghu .tel,
+.login .login_box .login_tab_item .zhanghu .username,
 .login .login_box .login_tab_item .zhanghu .password {
   display: inline-block;
   width: 305px;
@@ -183,11 +183,11 @@
   background: url(../images/login/pwd-icons-new.png) no-repeat 0 0;
 }
 .login .login_box .login_tab_item .zhanghu .password {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .login .login_box .login_tab_item .zhanghu .password_icon {
   position: absolute;
-  top: 89px;
+  top: 119px;
   left: 20px;
   background: url(../images/login/pwd-icons-new.png) no-repeat -47px 0;
 }
@@ -203,6 +203,20 @@
   background-color: #e85356;
   color: #fff;
   font-size: 20px;
+}
+.login .login_box .login_tab_item .zhanghu .uTip,
+.login .login_box .login_tab_item .zhanghu .pTip{
+  position: absolute;
+  /* background: #cd282c; */
+  font-size: 20px;
+}
+.login .login_box .login_tab_item .zhanghu .uTip{
+  left: 57px;
+  top: 68px;
+}
+.login .login_box .login_tab_item .zhanghu .pTip{
+  left: 55px;
+  top: 156px;
 }
 .login .login_box .bot {
   height: 50px;

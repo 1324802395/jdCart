@@ -49,13 +49,14 @@ async function getGoods() {
         divCart.innerHTML = ''
         divCart.innerHTML = html;
 
-        // 给全选按钮绑定事件实现全选和单选按钮选中或取消
-        let checkAll = document.querySelectorAll('.c-container .checkall');
-        let checkOne = document.querySelectorAll('.j-checkbox');
+        
 
         // 给核心模块绑定事件整事件委派，看点击的是什么执行相应的操作
         let contentBox = document.querySelector('.cart-warp');
         contentBox.onclick = e => {
+            // 给全选按钮绑定事件实现全选和单选按钮选中或取消
+        let checkAll = document.querySelectorAll('.c-container .checkall');
+        let checkOne = document.querySelectorAll('.j-checkbox');
             getCartNum()
             console.log(e.target);
             if (e.target.className == 'checkall') {
@@ -227,6 +228,7 @@ function delLine(tar,checkOne=null) {
             if(tar.className=='clear-all'){
                 divCart.innerHTML='';
                 localStorage.removeItem('cart');
+                // getSum(checkOne);
             }
             if(tar.className=='remove-batch'){
                 checkOne.forEach(item=>{
@@ -244,6 +246,7 @@ function delLine(tar,checkOne=null) {
                 let sumNumNode = document.querySelector('.cart-floatbar .amount-sum span');
                 sumPriceNode.innerHTML=0;
                 sumNumNode.innerHTML=0;
+                getSum(checkOne);
             }
         }
     });
