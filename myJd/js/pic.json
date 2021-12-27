@@ -1,0 +1,23 @@
+{
+    "bigPic": [
+      {
+        "id": 1,
+        "src":"images/shop_goods/product_details/big/3.jpg",
+        "name":"123",
+        "price":"1999"
+      },
+      {
+        "id": 2,
+        "src":"images/shop_goods/product_details/little/2.jpg",
+        "name":"123",
+        "price":"1999"
+      }
+    ],
+    "smallPic": [
+        {
+          "id": 1,
+          "src":"images/shop_goods/product_details/mid/3.jpg",
+          "name":"321"
+        }
+      ]
+  }

@@ -83,16 +83,16 @@ async function getGoods() {
             // 点击删除按钮，确认删除后，删除整行，并更改local
             if (e.target.className == 'p-action_x') {
                 delLine(e.target);
-                getSum(checkOne)
+                // getSum(checkOne)
             }
             // 点击清空购物车，删除所有商品
             if (e.target.className == 'clear-all') {
                 delLine(e.target);
-                getSum(checkOne)
+                // getSum(checkOne)
             }
             // 点击清除已选中，删除被选中的商品
             if (e.target.className == 'remove-batch') {
-                delLine(e.target,checkOne);
+                delLine(e.target);
                 // getSum(checkOne)
             }
         }
@@ -212,7 +212,7 @@ function getSum(checkOne) {
 }
 
 // 根据点击的选项，执行相应的删除操作
-function delLine(tar,checkOne=null) {
+function delLine(tar) {
     layer.open({
         title: '确认删除框', 
         content: '是否删除',
@@ -224,11 +224,22 @@ function delLine(tar,checkOne=null) {
                 let id=tar.getAttribute('good-id');
                 tar.parentNode.parentNode.remove();
                 delLocal(id);
+                // console.log(checkOne);
+                let checkOne1= document.querySelectorAll('.j-checkbox');
+                getSum(checkOne1);
+                
             }
             if(tar.className=='clear-all'){
+                // console.log(123);
                 divCart.innerHTML='';
                 localStorage.removeItem('cart');
-                // getSum(checkOne);
+                // 删除节点后再次获取节点，再计算价格
+                let checkOne2= document.querySelectorAll('.j-checkbox');
+                // 设置全选按钮为不选中
+                let checkAll1 = document.querySelectorAll('.c-container .checkall');
+                // console.log(checkAll1);
+                checkAll1.forEach(item=>{item.checked=false});
+                getSum(checkOne2);
             }
             if(tar.className=='remove-batch'){
                 checkOne.forEach(item=>{
@@ -246,7 +257,8 @@ function delLine(tar,checkOne=null) {
                 let sumNumNode = document.querySelector('.cart-floatbar .amount-sum span');
                 sumPriceNode.innerHTML=0;
                 sumNumNode.innerHTML=0;
-                getSum(checkOne);
+                let checkOne3= document.querySelectorAll('.j-checkbox');
+                getSum(checkOne3);
             }
         }
     });

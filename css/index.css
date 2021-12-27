@@ -1601,12 +1601,20 @@
 }
 .for_you_tab {
   display: none;
+  /* position: relative; */
 }
 .for_you_goodslist {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+/* .for_you_tab::after{
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+} */
 .for_you_goodslist li {
   width: 232px;
   height: 320px;
@@ -1614,6 +1622,7 @@
   margin-right: 10px;
   padding: 30px 40px;
   background-color: #fff;
+  /* position: absolute; */
 }
 .for_you_goodslist li img {
   margin-bottom: 40px;

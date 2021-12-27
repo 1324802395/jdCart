@@ -25,7 +25,7 @@ async function getGoods(num=1){
     let str='';
     goodList.forEach(item => {
         str+=`<li>
-        <img src="${item.src}" alt=" ">
+        <img src="${item.src}" alt=" " img-id='${item.id}'>
         <div class="goods_msg ">
             <h4 class="googs_title two_row ">
                 <span class="ziying ">自营</span> ${item.name}
